@@ -4,6 +4,7 @@ URL Configuration for TOP STR Enterprise project (ТОП СТР энтерпра
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -32,6 +33,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    # Главная страница веб-сайта онлайн-сервиса «ТОП СТР»
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+
     # Стандартная панель администратора для руководства
     path('admin/', admin.site.urls),
 
